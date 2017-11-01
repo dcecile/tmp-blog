@@ -6,6 +6,26 @@
   <%= @article.body %>
 </p>
 
-<p>
-  <%= link_to "All articles", articles_path %>
-</p>
+<ul>
+  <li>
+    <%=
+    link_to(
+      "Edit this article",
+      edit_article_path(@article)
+    )
+    %>
+  </li>
+  <li>
+    <%=
+    link_to(
+      "Delete this article",
+      article_path(@article),
+      method: :delete,
+      data: { confirm: "Really, really sure you clicked delete?" }
+    )
+    %>
+  </li>
+  <li>
+    <%= link_to "All articles", articles_path %>
+  </li>
+</ul>
