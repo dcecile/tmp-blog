@@ -6,6 +6,13 @@
   <%= @article.body %>
 </p>
 
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
+
 <div class="comments">
   <h2><%= pluralize(@article.comments.size, "comment") %></h2>
   <%= render partial: "comments/form" %>
