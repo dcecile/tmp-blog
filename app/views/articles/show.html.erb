@@ -6,6 +6,12 @@
   <%= @article.body %>
 </p>
 
+<div class="comments">
+  <h2><%= pluralize(@article.comments.size, "comment") %></h2>
+  <%= render partial: "comments/form" %>
+  <%= render partial: "articles/comment", collection: @article.comments.reverse %>
+</div>
+
 <ul>
   <li>
     <%=
