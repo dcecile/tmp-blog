@@ -7,6 +7,10 @@
 </p>
 
 <p>
+  <%= image_tag @article.image.url %>
+</p>
+
+<p>
   Tags:
   <% @article.tags.each do |tag| %>
     <%= link_to tag.name, tag_path(tag) %>
