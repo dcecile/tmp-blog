@@ -1,9 +1,4 @@
-body {
-  max-width: 30em;
-  margin: 3em 4em;
-  border: 1px solid black;
-  padding: 1em 1.5em 2em;
-}
+@import "mixins/*";
 
 .articles {
   font-size: 1.5em;
@@ -14,12 +9,8 @@ body {
   color: cyan;
 }
 
-.flash {
-  font-style: italic;
-}
-
 .comments {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
   color: #080;
 }
