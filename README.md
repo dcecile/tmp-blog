@@ -19,4 +19,5 @@ application up and running.
 3. (Optional) Run `heroku apps:rename NEWNAME` to rename your app
 4. Run `git push heroku master` to push code to the Heroku app
 5. Run `heroku run rails db:migrate` to set up the database
-6. Run `heroku open` to visit the website
+6. (Optional) Run `heroku addons:open scheduler` to open the Heroku scheduler dashboard, then set up an hourly task for `rails scheduler:destroy_all_old` to periodically refresh the database
+7. Run `heroku open` to visit the website
