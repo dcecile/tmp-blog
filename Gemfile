@@ -19,6 +19,8 @@ group :production do
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+# Use Rack::Timeout to terminate long-running requests
+gem 'rack-timeout'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
