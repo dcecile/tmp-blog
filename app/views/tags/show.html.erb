@@ -6,19 +6,25 @@
 <% end %>
 </ul>
 
-
 <ul>
   <li>
     <%=
-    link_to(
-      "Delete this tag",
-      tag_path(@tag),
-      method: :delete,
-      data: { confirm: "Really, really sure you clicked delete?" }
-    )
+      tb_link_button(
+        "Delete this tag",
+        tag_path(@tag),
+        "x",
+        method: :delete,
+        data: { confirm: "Really, really sure you clicked delete?" }
+      )
     %>
   </li>
   <li>
-    <%= link_to "All tags", tags_path %>
+    <%=
+      tb_link_button(
+        "All tags",
+        tags_path,
+        "tag"
+      )
+    %>
   </li>
 </ul>

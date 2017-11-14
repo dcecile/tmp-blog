@@ -24,6 +24,12 @@
     <%= form.file_field :image %>
   </div>
   <div>
-    <%= form.submit %>
+    <%=
+      tb_submit_button(
+        form,
+        "Save article",
+        "note"
+      )
+    %>
   </div>
 <% end %>

@@ -6,4 +6,10 @@
 <% end %>
 </ul>
 
-<h2><%= link_to "All articles", articles_path %></h2>
+<%=
+  tb_link_button(
+    "All articles",
+    articles_path,
+    "arrow-left"
+  )
+%>

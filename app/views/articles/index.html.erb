@@ -8,6 +8,23 @@
   <% end %>
 </ul>
 
-<h2><%= link_to "All tags", tags_path %></h2>
-
-<%= link_to "Author new article", new_article_path, class: "new-article" %>
+<ul>
+  <li>
+    <%=
+      tb_link_button(
+        "All tags",
+        tags_path,
+        "tag"
+      )
+    %>
+  </li>
+  <li>
+    <%=
+      tb_link_button(
+        "Author new article",
+        new_article_path,
+        "plus"
+      )
+    %>
+  </li>
+</ul>

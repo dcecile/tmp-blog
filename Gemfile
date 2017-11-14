@@ -23,6 +23,12 @@ gem 'puma', '~> 3.7'
 gem 'rack-timeout'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use Bootstrap 4 for styling
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+# Use Octicons for icons
+gem 'octicons_helper'
+# Use jQuery for scripting
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

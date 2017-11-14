@@ -28,23 +28,31 @@
 <ul>
   <li>
     <%=
-    link_to(
-      "Edit this article",
-      edit_article_path(@article)
-    )
+      tb_link_button(
+        "Edit this article",
+        edit_article_path(@article),
+        "pencil"
+      )
     %>
   </li>
   <li>
     <%=
-    link_to(
-      "Delete this article",
-      article_path(@article),
-      method: :delete,
-      data: { confirm: "Really, really sure you clicked delete?" }
-    )
+      tb_link_button(
+        "Delete this article",
+        article_path(@article),
+        "x",
+        method: :delete,
+        data: { confirm: "Really, really sure you clicked delete?" }
+      )
     %>
   </li>
   <li>
-    <%= link_to "All articles", articles_path %>
+    <%=
+      tb_link_button(
+        "All articles",
+        articles_path,
+        "arrow-left"
+      )
+    %>
   </li>
 </ul>
