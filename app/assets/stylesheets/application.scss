@@ -1,9 +1,17 @@
 @import "theme";
 @import "bootstrap";
-@import "mixins/*";
 @import "octicon";
+@import "footer";
+@import "flash";
 @import "button";
-@import "base";
-@import "articles";
-@import "comments";
-@import "tags";
+@import "summary-group";
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+
+.tb-application {
+  @extend .rounded;
+  font-family: 'Share Tech Mono', monospace;
+  max-width: 50em;
+  margin: 3em 4em;
+  border: 2px solid $primary;
+  padding: $application-padding;
+}

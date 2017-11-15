@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsBlogExercise</title>
+    <title>/tmp/blog</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="flash"><%= flash.notice %></div>
+  <body class="tb-application">
+    <h1><a href="/">/tmp/blog</a></h1>
+    <% if flash.notice %>
+      <div class="tb-flash"><%= flash.notice %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

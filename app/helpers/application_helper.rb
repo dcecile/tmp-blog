@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def tb_link_button(text, path, octicon_name, **options)
-    link_to(path, class: "tb-button", **options) do
+  def tb_link_button(text, path, octicon_name, extra_class: nil, **options)
+    link_to(path, class: ["tb-button", extra_class], **options) do
       concat(octicon(octicon_name))
       concat(" ")
       concat(text)

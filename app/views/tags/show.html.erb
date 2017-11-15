@@ -1,30 +1,34 @@
-<h1><%= pluralize(@tag.tagging.size, "article") %> tagged as <%= @tag.name %></h1>
+<h2><%= pluralize(@tag.tagging.size, "article") %> tagged as "<%= @tag.name %>"</h2>
 
-<ul>
-<% @tag.articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article) %></li>
-<% end %>
-</ul>
-
-<ul>
-  <li>
+<div class="tb-summary-group">
+  <% @tag.articles.each do |article| %>
     <%=
-      tb_link_button(
-        "Delete this tag",
-        tag_path(@tag),
-        "x",
-        method: :delete,
-        data: { confirm: "Really, really sure you clicked delete?" }
+      link_to(
+        "#{article.title} [ #{article.tag_list} ]",
+        article_path(article),
+        class: "tb-summary-group__item"
       )
     %>
-  </li>
-  <li>
-    <%=
-      tb_link_button(
-        "All tags",
-        tags_path,
-        "tag"
-      )
-    %>
-  </li>
-</ul>
+  <% end %>
+
+  <%=
+    tb_link_button(
+      "Delete this tag",
+      tag_path(@tag),
+      "x",
+      extra_class: "tb-summary-group__button",
+      method: :delete,
+      data: { confirm: "Really, really sure you clicked delete?" }
+    )
+  %>
+</div>
+
+<div class="tb-footer">
+  <%=
+    tb_link_button(
+      "All tags",
+      tags_path,
+      "tag"
+    )
+  %>
+</div>

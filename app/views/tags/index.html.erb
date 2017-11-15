@@ -1,15 +1,24 @@
-<h1>All tags</h1>
+<h2><%= pluralize(@tags.size, "tag") %> found</h2>
+<p>(last 24 hours only)</p>
 
-<ul>
-<% @tags.each do |tag| %>
-  <li><%= link_to "#{tag.name} (#{pluralize(tag.tagging.size, 'article')})", tag_path(tag) %></li>
-<% end %>
-</ul>
+<div class="tb-summary-group">
+  <% @tags.each do |tag| %>
+    <%=
+      link_to(
+        "#{tag.name} (#{pluralize(tag.tagging.size, 'article')})",
+        tag_path(tag),
+        class: "tb-summary-group__item"
+      )
+    %>
+  <% end %>
+</div>
 
-<%=
-  tb_link_button(
-    "All articles",
-    articles_path,
-    "arrow-left"
-  )
-%>
+<div class="tb-footer">
+  <%=
+    tb_link_button(
+      "All articles",
+      articles_path,
+      "arrow-left"
+    )
+  %>
+</div>
