@@ -5,7 +5,7 @@
   <% @articles.each do |article| %>
     <%=
       link_to(
-        "#{article.title} (from #{distance_of_time_in_words(article.created_at, DateTime.now)} ago)",
+        "#{article.title} (from #{ago_in_words(article.created_at)})",
         article_path(article),
         class: "tb-summary-group__item"
       )

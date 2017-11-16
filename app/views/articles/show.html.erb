@@ -1,28 +1,37 @@
-<h1>
+<h2>
   <%= @article.title %>
-</h1>
+</h2>
 
 <p>
   <%= @article.body %>
 </p>
 
-<p>
-  <% if @article.image.exists? %>
+<% if @article.image.exists? %>
+  <p>
     <%= image_tag @article.image.url(:medium) %>
-  <% end %>
-</p>
+  </p>
+<% end %>
 
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-</p>
+<% if @article.tags.any? %>
+  <p>
+    Tags:
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+    <% end %>
+  </p>
+<% end %>
 
-<div class="comments">
-  <h2><%= pluralize(@article.comments.size, "comment") %></h2>
-  <%= render partial: "comments/form" %>
-  <%= render partial: "articles/comment", collection: @article.comments.reverse %>
+<p>Posted <%= ago_in_words(@article.created_at) %></p>
+
+<%= render partial: "comments/form" %>
+<div>
+  <%=
+    render(
+      partial: "comments/show",
+      collection: @article.comments.reverse,
+      as: :comment
+    )
+  %>
 </div>
 
 <ul>

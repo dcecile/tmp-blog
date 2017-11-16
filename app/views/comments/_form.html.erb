@@ -1,25 +1,21 @@
-<h3>Add your comment here</h3>
-<%= form_for [@article, @comment] do |form| %>
-  <ul class="errors">
-  <% @comment.errors.full_messages.each do |error_message| %>
-    <li><%= error_message =%></li>
-  <% end %>
-  </ul>
-  <div>
-    <%= form.label :author_name, "Your name" %>
-    <%= form.text_field :author_name %>
-  </div>
-  <div>
-    <%= form.label :body, "Comment" %>
-    <%= form.text_area :body %>
-  </div>
-  <div>
-    <%=
-      tb_submit_button(
-        form,
-        "Add comment",
-        "comment"
-      )
-    %>
+<%= form_for([@article, @comment]) do |form| %>
+  <div class="tb-comment_form">
+    <div class="tb-comment__body">
+      <%=
+        form.text_area(
+          :body,
+          placeholder: "Enter your comment here",
+          class: "tb-comment__input",
+        )
+      %>
+      <%=
+        tb_submit_button(
+          form,
+          "Add comment",
+          "comment",
+          extra_class: "tb-comment__button"
+        )
+      %>
+    </div>
   </div>
 <% end %>

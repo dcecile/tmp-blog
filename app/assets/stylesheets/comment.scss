@@ -1,0 +1,45 @@
+.tb-comment {
+  @extend .card;
+  max-width: 24rem;
+  margin: 2rem;
+}
+
+.tb-comment:nth-child(2n) {
+  margin-left: auto;
+}
+
+.tb-comment_form {
+  @extend .tb-comment;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tb-comment__body {
+  @extend .card-body;
+}
+
+.tb-comment__input {
+  @extend .card-text, .form-control;
+  height: 5.5em;
+  resize: none;
+}
+
+.tb-comment__button {
+  @extend .btn-block;
+  margin-top: 1rem;
+}
+
+.tb-comment__header {
+  @extend .card-header;
+}
+
+.tb-comment__quote {
+  @extend .blockquote;
+  font-size: inherit;
+  margin-bottom: 0;
+}
+
+.tb-comment__quote-footer {
+  @extend .blockquote-footer;
+  font-size: inherit;
+}

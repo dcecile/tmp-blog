@@ -14,4 +14,8 @@ module ApplicationHelper
       concat(text)
     end
   end
+
+  def ago_in_words(time)
+    "#{distance_of_time_in_words(time, DateTime.now)} ago"
+  end
 end

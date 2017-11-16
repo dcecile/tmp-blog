@@ -1,0 +1,12 @@
+<div class="tb-comment">
+  <div class="tb-comment__header">
+    Comment <%= ago_in_words(comment.created_at) %>
+  </div>
+  <div class="tb-comment__body">
+    <blockquote class="tb-comment__quote">
+      <p><%= comment.body %></p>
+      <footer class="tb-comment__quote-footer">
+        by <%= comment.author_name %>
+      </footer>
+  </div>
+</div>
