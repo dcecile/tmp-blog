@@ -1,35 +1,44 @@
-<%= form_for(@article, html: { multipart: true }) do |form| %>
-  <ul class="errors">
+<%= form_for(@article, html: { multipart: true, class: "tb-article-form" }) do |form| %>
+  <h2 class="tb-article-form__header"><%= title %></h2>
   <% @article.errors.full_messages.each do |error_message| %>
     <li><%= error_message =%></li>
   <% end %>
   </ul>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="tb-form-row">
+    <%= form.label :title, class: "tb-form-row__label" %>
+    <div class="tb-form-row__input-column">
+      <%= form.text_field :title, class: "tb-form-row__input-control" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="tb-form-row">
+    <%= form.label :body, class: "tb-form-row__label" %>
+    <div class="tb-form-row__input-column">
+      <%= form.text_area :body, class: "tb-form-row__input-control_text-area" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :tag_list %>
-    <%= form.text_field :tag_list %>
+  <div class="tb-form-row">
+    <%= form.label :tag_list, "Tags", class: "tb-form-row__label" %>
+    <div class="tb-form-row__input-column">
+      <%= form.text_field :tag_list, class: "tb-form-row__input-control" %>
+    </div>
   </div>
-  <div>
-    <% if @article.image.exists? %>
-      <%= image_tag @article.image.url(:thumb) %>
-    <% end %>
-    <%= form.label :image, "Attach your image" %>
-    <%= form.file_field :image %>
+  <div class="tb-form-row">
+    <%= form.label :image, class: "tb-form-row__label" %>
+    <div class="tb-form-row__input-column">
+      <label class="tb-form-row__input-control tb-file">
+        <%= form.file_field :image, class: "tb-file__input" %>
+        <span class="tb-file__control"><%=
+          @article.image_file_name
+        %></span>
+      </label>
+    </div>
   </div>
-  <div>
-    <%=
-      tb_submit_button(
-        form,
-        "Save article",
-        "note"
-      )
-    %>
-  </div>
+  <%=
+    tb_submit_button(
+      form,
+      "Save article",
+      "note",
+      extra_class: "tb-article-form__submit"
+    )
+  %>
 <% end %>

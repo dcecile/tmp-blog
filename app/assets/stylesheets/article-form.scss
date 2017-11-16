@@ -1,0 +1,12 @@
+.tb-article-form {
+  padding: 0.8rem 1.4rem 1rem;
+}
+
+.tb-article-form__header {
+  margin-bottom: 1.2rem;
+}
+
+.tb-article-form__submit {
+  @extend .btn-lg;
+  margin-top: 0.6rem;
+}

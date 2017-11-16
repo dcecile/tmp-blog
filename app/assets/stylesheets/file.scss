@@ -1,0 +1,11 @@
+.tb-file {
+  @extend .custom-file;
+}
+
+.tb-file__input {
+  @extend .custom-file-input;
+}
+
+.tb-file__control {
+  @extend .custom-file-control;
+}

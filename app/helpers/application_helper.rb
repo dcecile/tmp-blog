@@ -7,8 +7,8 @@ module ApplicationHelper
     end
   end
 
-  def tb_submit_button(form, text, octicon_name)
-    form.button(class: "tb-button", type: "submit") do
+  def tb_submit_button(form, text, octicon_name, extra_class: nil)
+    form.button(class: ["tb-button", extra_class], type: "submit") do
       concat(octicon(octicon_name))
       concat(" ")
       concat(text)

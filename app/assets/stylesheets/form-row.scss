@@ -1,0 +1,23 @@
+.tb-form-row {
+  @extend .form-group, .row;
+  margin-bottom: 1.2rem;
+}
+
+.tb-form-row__label {
+  @extend .col-sm-2, .col-form-label;
+}
+
+.tb-form-row__input-column {
+  @extend .col-sm-10;
+  padding-left: 0;
+}
+
+.tb-form-row__input-control {
+  @extend .form-control;
+}
+
+.tb-form-row__input-control_text-area {
+  @extend .tb-form-row__input-control;
+  height: 10em;
+  resize: none;
+}

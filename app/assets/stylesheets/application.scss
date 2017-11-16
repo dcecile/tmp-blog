@@ -5,12 +5,15 @@
 @import "flash";
 @import "button";
 @import "summary-group";
+@import "form-row";
+@import "file";
+@import "article-form";
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
 
 .tb-application {
   @extend .rounded;
   font-family: 'Share Tech Mono', monospace;
-  max-width: 50em;
+  max-width: 40em;
   margin: 3em 4em;
   border: 2px solid $primary;
   padding: $application-padding;
