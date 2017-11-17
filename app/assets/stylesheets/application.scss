@@ -14,8 +14,8 @@
 .tb-application {
   @extend .rounded;
   font-family: 'Share Tech Mono', monospace;
-  max-width: 40em;
-  margin: 3em 4em;
+  max-width: 40rem;
+  margin: 3rem 4rem;
   border: 2px solid $primary;
   padding: $application-padding;
 }
