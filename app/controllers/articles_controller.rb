@@ -19,14 +19,16 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(article_params)
-    flash.notice = "The article '#{@article.title}' is newly created!"
+    @article = Article.create(
+      article_params.merge!(author_name: "A. Non")
+    )
+    flash.notice = "Your article '#{@article.title}' is now posted!"
     redirect_to article_path(@article)
   end
 
   def update
     @article = Article.update(params[:id], article_params)
-    flash.notice = "The article '#{@article.title}' is updated"
+    flash.notice = "The article '#{@article.title}' is now updated!"
     redirect_to article_path(@article)
   end
 

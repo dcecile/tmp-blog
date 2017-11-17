@@ -1,4 +1,6 @@
-<h2><%= pluralize(@tag.tagging.size, "article") %> tagged as "<%= @tag.name %>"</h2>
+<h2 class="tb-application__header">
+  <%= pluralize(@tag.tagging.size, "article") %> tagged as "<%= @tag.name %>"
+</h2>
 
 <div class="tb-summary-group">
   <% @tag.articles.each do |article| %>
@@ -23,7 +25,7 @@
   %>
 </div>
 
-<div class="tb-footer">
+<div class="tb-application__footer">
   <%=
     tb_link_button(
       "All tags",

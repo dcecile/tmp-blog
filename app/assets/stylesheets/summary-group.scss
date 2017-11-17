@@ -1,5 +1,5 @@
 .tb-summary-group {
-  padding: 0.8rem 1.6rem;
+  @extend .tb-application__content;
 }
 
 .tb-summary-group__item {

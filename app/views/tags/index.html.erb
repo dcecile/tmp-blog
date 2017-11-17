@@ -1,5 +1,10 @@
-<h2><%= pluralize(@tags.size, "tag") %> found</h2>
-<p>(last 24 hours only)</p>
+<h2 class="tb-application__header">
+  <%= pluralize(@tags.size, "tag") %> found
+</h2>
+
+<p class="tb-application__byline">
+  (last 24 hours only)
+</p>
 
 <div class="tb-summary-group">
   <% @tags.each do |tag| %>
@@ -13,7 +18,7 @@
   <% end %>
 </div>
 
-<div class="tb-footer">
+<div class="tb-application__footer">
   <%=
     tb_link_button(
       "All articles",

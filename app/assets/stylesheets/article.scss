@@ -1,0 +1,27 @@
+.tb-article {
+  @extend .tb-application__content;
+}
+
+.tb-article__body {
+  font-size: $h5-font-size;
+}
+
+.tb-article__image {
+  display: block;
+  margin: 2rem;
+  border: 1px solid fade_out($primary, 0.4);
+  padding: 1.5rem;
+}
+
+.tb-article__tags {
+  font-size: $h5-font-size;
+  color: $blockquote-small-color;
+}
+
+.tb-article__button-group {
+  margin: 0 auto;
+}
+
+.tb-article__button {
+  @extend .btn-sm;
+}

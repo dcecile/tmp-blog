@@ -1,11 +1,16 @@
-<h2><%= pluralize(@articles.size, "article") %> found</h2>
-<p>(last 24 hours only)</p>
+<h2 class="tb-application__header">
+  <%= pluralize(@articles.size, "article") %> found
+</h2>
+
+<p class="tb-application__byline">
+  (last 24 hours only)
+</p>
 
 <div class="tb-summary-group">
   <% @articles.each do |article| %>
     <%=
       link_to(
-        "#{article.title} (from #{ago_in_words(article.created_at)})",
+        "#{article.title} (#{ago_in_words(article.created_at)})",
         article_path(article),
         class: "tb-summary-group__item"
       )
@@ -22,7 +27,7 @@
   %>
 </div>
 
-<div class="tb-footer">
+<div class="tb-application__footer">
   <%=
     tb_link_button(
       "All tags",

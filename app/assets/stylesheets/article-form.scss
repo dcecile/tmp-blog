@@ -1,5 +1,5 @@
 .tb-article-form {
-  padding: 0.8rem 1.4rem 1rem;
+  @extend .tb-application__content;
 }
 
 .tb-article-form__header {

@@ -1,13 +1,13 @@
 @import "theme";
 @import "bootstrap";
 @import "octicon";
-@import "footer";
 @import "flash";
 @import "button";
 @import "summary-group";
 @import "form-row";
 @import "file";
 @import "article-form";
+@import "article";
 @import "comment";
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
 
@@ -17,5 +17,23 @@
   max-width: 40rem;
   margin: 3rem 4rem;
   border: 2px solid $primary;
+  padding: $application-padding;
+}
+
+.tb-application__header {
+  margin: 1rem 0;
+}
+
+.tb-application__byline {
+  color: $blockquote-small-color;
+}
+
+.tb-application__content {
+  padding: 0.8rem 1.6rem;
+}
+
+.tb-application__footer {
+  border-top: 2px solid $primary;
+  margin: 1rem (-$application-padding) (-$application-padding);
   padding: $application-padding;
 }

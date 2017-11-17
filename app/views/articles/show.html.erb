@@ -1,27 +1,58 @@
-<h2>
+<h2 class="tb-application__header">
   <%= @article.title %>
 </h2>
 
-<p>
-  <%= @article.body %>
+<p class="tb-application__byline">
+  Posted
+  <%= ago_in_words(@article.created_at) %>
+  by
+  <%= @article.author_name %>
 </p>
 
-<% if @article.image.exists? %>
-  <p>
-    <%= image_tag @article.image.url(:medium) %>
+<div class="tb-article">
+  <p class="tb-article__body">
+    <%= @article.body %>
   </p>
-<% end %>
 
-<% if @article.tags.any? %>
-  <p>
-    Tags:
-    <% @article.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %>
-    <% end %>
-  </p>
-<% end %>
+  <% if @article.image.exists? %>
+    <%=
+      image_tag(
+        @article.image.url(:medium),
+        class: "tb-article__image"
+      )
+    %>
+  <% end %>
 
-<p>Posted <%= ago_in_words(@article.created_at) %></p>
+  <% if @article.tags.any? %>
+    <p class="tb-article__tags">
+      tags:
+      <% @article.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag) %>
+      <% end %>
+    </p>
+  <% end %>
+
+  <div class="tb-article__button-group">
+    <%=
+      tb_link_button(
+        "Edit this article",
+        edit_article_path(@article),
+        "pencil",
+        extra_class: "tb-article__button"
+      )
+    %>
+    <%=
+      tb_link_button(
+        "Delete this article",
+        article_path(@article),
+        "x",
+        method: :delete,
+        data: { confirm: "Really, really sure you clicked delete?" },
+        extra_class: "tb-article__button"
+      )
+    %>
+  </div>
+</div>
 
 <%= render partial: "comments/form" %>
 <div>
@@ -34,30 +65,7 @@
   %>
 </div>
 
-<ul>
-  <li>
-    <%=
-      tb_link_button(
-        "Edit this article",
-        edit_article_path(@article),
-        "pencil"
-      )
-    %>
-  </li>
-  <li>
-    <%=
-      tb_link_button(
-        "Delete this article",
-        article_path(@article),
-        "x",
-        method: :delete,
-        data: { confirm: "Really, really sure you clicked delete?" }
-      )
-    %>
-  </li>
-</ul>
-
-<div class="tb-footer">
+<div class="tb-application__footer">
   <%=
     tb_link_button(
       "All articles",
