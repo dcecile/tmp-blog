@@ -21,3 +21,9 @@
   height: 10em;
   resize: none;
 }
+
+.tb-form-row__help-text {
+  @extend .form-text, .text-muted;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
