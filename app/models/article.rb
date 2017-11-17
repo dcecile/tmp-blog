@@ -11,6 +11,12 @@ class Article < ApplicationRecord
     content_type: ["image/jpeg", "image/png"]
   )
 
+  def body_paragraphs
+    body
+      .split(/\n\s*\n/)
+      .map(&:strip)
+  end
+
   def tag_list
     tags
       .map(&:name)

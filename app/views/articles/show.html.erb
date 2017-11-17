@@ -10,9 +10,9 @@
 </p>
 
 <div class="tb-article">
-  <p class="tb-article__body">
-    <%= @article.body %>
-  </p>
+  <% @article.body_paragraphs.each do |paragraph| %>
+    <p class="tb-article__body"><%= paragraph %></p>
+  <% end %>
 
   <% if @article.image.exists? %>
     <%=
