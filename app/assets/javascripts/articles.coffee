@@ -12,7 +12,8 @@ syncInputFileName = ($input, $control) ->
     console.log "File changed to '#{newName}'"
     $control.text(newName)
 
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
+  console.log('Setting up file name sync')
   syncInputFileName(
     $('.tb-file__input'),
     $('.tb-file__control'))
