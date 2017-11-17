@@ -16,6 +16,6 @@ module ApplicationHelper
   end
 
   def ago_in_words(time)
-    "#{distance_of_time_in_words(time, DateTime.now)} ago"
+    "#{distance_of_time_in_words(time.utc, Time.now.utc)} ago"
   end
 end
