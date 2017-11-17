@@ -2,11 +2,8 @@ class TagsController < ApplicationController
   def index
     @tags = Tag.all
     random_article = Article.order("RANDOM()").first
-    if random_article
-      @edit_random_article_path = edit_article_path(random_article)
-    else
-      @edit_random_article_path = nil
-    end
+    @edit_random_article_path =
+      random_article ? edit_article_path(random_article) : nil
   end
 
   def show

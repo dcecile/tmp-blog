@@ -1,6 +1,5 @@
 class ApplicationController
   module Scheduler
-
     def self.destroy_all_old
       logger = Logger.new(STDOUT)
       destroy_all_items(logger, "articles", find_old_articles)
