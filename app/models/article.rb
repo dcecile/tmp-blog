@@ -18,4 +18,12 @@ class Article < ApplicationRecord
         Tag.find_or_create_by(name: tag_name)
       end
   end
+
+  def comments_recent_order
+    comments.order(created_at: :desc)
+  end
+
+  def self.recent_order
+    order(created_at: :desc)
+  end
 end

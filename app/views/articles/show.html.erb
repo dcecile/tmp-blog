@@ -28,7 +28,7 @@
   <%=
     render(
       partial: "comments/show",
-      collection: @article.comments.reverse,
+      collection: @article.comments_recent_order,
       as: :comment
     )
   %>
