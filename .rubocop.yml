@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - db/schema.rb
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Documentation:
+  Enabled: false
