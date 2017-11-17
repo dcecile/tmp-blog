@@ -1,9 +1,5 @@
 <%= form_for(@article, html: { multipart: true, class: "tb-article-form" }) do |form| %>
   <h2 class="tb-article-form__header"><%= title %></h2>
-  <% @article.errors.full_messages.each do |error_message| %>
-    <li><%= error_message =%></li>
-  <% end %>
-  </ul>
   <div class="tb-form-row">
     <%= form.label :title, class: "tb-form-row__label" %>
     <div class="tb-form-row__input-column">
@@ -11,6 +7,7 @@
         form.text_field(
           :title,
           autocomplete: "off",
+          required: true,
           class: "tb-form-row__input-control"
         )
       %>
@@ -22,6 +19,7 @@
       <%=
         form.text_area(
           :body,
+          required: true,
           class: "tb-form-row__input-control_text-area"
         )
       %>
