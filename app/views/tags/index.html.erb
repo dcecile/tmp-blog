@@ -6,17 +6,54 @@
   (last 24 hours only)
 </p>
 
-<div class="tb-summary-group">
-  <% @tags.each do |tag| %>
-    <%=
-      link_to(
-        "#{tag.name} (#{pluralize(tag.tagging.size, 'article')})",
-        tag_path(tag),
-        class: "tb-summary-group__item"
-      )
-    %>
-  <% end %>
-</div>
+<% if @tags.any? %>
+  <div class="tb-summary-group">
+    <% @tags.each do |tag| %>
+      <%=
+        link_to(
+          "#{tag.name} (#{pluralize(tag.tagging.size, 'article')})",
+          tag_path(tag),
+          class: "tb-summary-group__item"
+        )
+      %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="tb-empty">
+    <%= octicon("beaker", class: "tb-empty__image") %>
+    <div class="tb-empty__body">
+      <p class="tb-empty__text">
+        No tags found right now. What would you like to do?
+      </p>
+      <%=
+        tb_link_button(
+          "Make a new article",
+          new_article_path,
+          "file",
+          extra_class: "tb-empty__button"
+        )
+      %>
+      <% if @edit_random_article_path %>
+        <%=
+          tb_link_button(
+            "Edit a random article",
+            @edit_random_article_path,
+            "issue-reopened",
+            extra_class: "tb-empty__button"
+          )
+        %>
+      <% end %>
+      <%=
+        tb_link_button(
+          "Show all articles",
+          articles_path,
+          "arrow-left",
+          extra_class: "tb-empty__button"
+        )
+      %>
+    </div>
+  </div>
+<% end %>
 
 <div class="tb-application__footer">
   <%=

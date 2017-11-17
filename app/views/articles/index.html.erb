@@ -6,26 +6,46 @@
   (last 24 hours only)
 </p>
 
-<div class="tb-summary-group">
-  <% @articles.each do |article| %>
+<% if @articles.any? %>
+  <div class="tb-summary-group">
+    <% @articles.each do |article| %>
+      <%=
+        link_to(
+          "#{article.title} (#{ago_in_words(article.created_at)})",
+          article_path(article),
+          class: "tb-summary-group__item"
+        )
+      %>
+    <% end %>
+
     <%=
-      link_to(
-        "#{article.title} (#{ago_in_words(article.created_at)})",
-        article_path(article),
-        class: "tb-summary-group__item"
+      tb_link_button(
+        "Author new article",
+        new_article_path,
+        "plus",
+        extra_class: "tb-summary-group__button"
       )
     %>
-  <% end %>
-
-  <%=
-    tb_link_button(
-      "Author new article",
-      new_article_path,
-      "plus",
-      extra_class: "tb-summary-group__button"
-    )
-  %>
-</div>
+  </div>
+<% else %>
+  <div class="tb-empty">
+    <%= octicon("telescope", class: "tb-empty__image") %>
+    <div class="tb-empty__body">
+      <p class="tb-empty__text">
+        No articles found right now, but it's
+        easy to create your own!
+      </p>
+      <%=
+        tb_link_button(
+          "Make the first article",
+          new_article_path,
+          "arrow-right",
+          extra_class: "tb-empty__button"
+        )
+      %>
+    </div>
+  </div>
+<% end %>
 
 <div class="tb-application__footer">
   <%=

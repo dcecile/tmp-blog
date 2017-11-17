@@ -14,6 +14,12 @@
   margin-right: auto;
 }
 
+.tb-comment_form-first {
+  @extend .tb-comment_form;
+  margin-bottom: 5rem;
+  border-color: fade_out($primary, 0.6);
+}
+
 .tb-comment__body {
   @extend .card-body;
 }

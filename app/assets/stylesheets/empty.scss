@@ -1,0 +1,32 @@
+.tb-empty {
+  @extend .card, .text-center;
+  max-width: 26rem;
+  margin: 3rem auto 4rem;
+  border-color: fade_out($primary, 0.2);
+}
+
+.tb-empty__image {
+  @extend .card-img-top;
+  width: 100%;
+  height: 9rem;
+  padding: 2rem 0 0.5rem;
+  color: fade_out($primary, 0.2);
+}
+
+.tb-empty__body {
+  @extend .card-body;
+}
+
+.tb-empty__text {
+  font-size: $h5-font-size;
+  color: $blockquote-small-color;
+  margin-bottom: 1.3rem;
+}
+
+.tb-empty__button {
+  @extend .btn-lg, .btn-block;
+}
+
+.tb-empty__button:not(:last-child) {
+  margin-bottom: 1rem;
+}

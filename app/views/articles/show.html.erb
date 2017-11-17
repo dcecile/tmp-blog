@@ -54,7 +54,7 @@
   </div>
 </div>
 
-<%= render partial: "comments/form" %>
+<%= render "comments/form", first: @article.comments.empty? %>
 <div>
   <%=
     render(

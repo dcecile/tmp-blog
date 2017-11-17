@@ -1,5 +1,5 @@
 <%= form_for([@article, @comment]) do |form| %>
-  <div class="tb-comment_form">
+  <div class="tb-comment_form<%= "-first" if first %>">
     <div class="tb-comment__body">
       <%=
         form.text_area(
@@ -11,7 +11,7 @@
       <%=
         tb_submit_button(
           form,
-          "Add comment",
+          first ? "Add first comment" : "Add comment",
           "comment",
           extra_class: "tb-comment__button"
         )
