@@ -50,6 +50,7 @@
         <%=
           form.file_field(
             :image,
+            accept: @article.image_allowed_types.join(", "),
             class: "tb-file__input"
           )
         %>
@@ -57,6 +58,9 @@
           @article.image_file_name
         %></span>
       </label>
+      <small class="tb-form-row__help-text">
+        Supported image types: <%= @article.image_allowed_type_names.join(", ") %>
+      </small>
     </div>
   </div>
   <%=

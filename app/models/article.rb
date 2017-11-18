@@ -8,7 +8,12 @@ class Article < ApplicationRecord
   )
   validates_attachment_content_type(
     :image,
-    content_type: ["image/jpeg", "image/png"]
+    content_type: [
+      "image/jpeg",
+      "image/png",
+      "image/gif",
+      "image/svg+xml"
+    ]
   )
 
   def body_paragraphs
@@ -29,6 +34,20 @@ class Article < ApplicationRecord
       tag_names.map do |tag_name|
         Tag.find_or_create_by(name: tag_name)
       end
+  end
+
+  def image_allowed_types
+    all_validators = Article.validators_on(:image)
+    content_type_validator = all_validators.find do |validator|
+      validator.respond_to?(:allowed_types)
+    end
+    content_type_validator.allowed_types
+  end
+
+  def image_allowed_type_names
+    image_allowed_types.map do |type|
+      type.match(%r{/([^+]*)})[1].upcase
+    end
   end
 
   def comments_recent_order
