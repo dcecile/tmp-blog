@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
+  include ApplicationController::AuthorName
 
   def index
     @articles = Article.recent_order
@@ -20,7 +21,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(
-      article_params.merge!(author_name: "A. Non")
+      merge_random_author_name!(article_params)
     )
     flash.notice = "Your article '#{@article.title}' is now posted!"
     redirect_to article_path(@article)
