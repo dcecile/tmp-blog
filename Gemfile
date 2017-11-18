@@ -61,6 +61,8 @@ group :development, :test do
 end
 
 group :development do
+  # Use Overcommit for Git hooks
+  gem "overcommit"
   # Access an IRB console on exception pages or by using <%= console %>
   # anywhere in the code.
   gem "listen", ">= 3.0.5", "< 3.2"

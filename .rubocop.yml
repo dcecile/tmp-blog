@@ -3,6 +3,9 @@ AllCops:
     - bin/*
     - db/schema.rb
 
+Rails:
+  Enabled: true
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
