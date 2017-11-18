@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags = Tag.lexicographical_order
     random_article = Article.order("RANDOM()").first
     @edit_random_article_path =
       random_article ? edit_article_path(random_article) : nil

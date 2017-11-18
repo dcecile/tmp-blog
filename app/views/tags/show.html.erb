@@ -4,7 +4,7 @@
 
 <% if @tag.articles.any? %>
   <div class="tb-summary-group">
-    <% @tag.articles.each do |article| %>
+    <% @tag.articles_recent_order.each do |article| %>
       <%=
         link_to(
           "#{article.title} [ #{article.tag_list} ]",
