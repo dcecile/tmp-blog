@@ -1,17 +1,18 @@
 .tb-comment {
   @extend .card;
   max-width: 24rem;
-  margin: 2rem;
+  margin: 2rem auto 2rem 2rem;
 }
 
 .tb-comment:nth-child(2n) {
   margin-left: auto;
+  margin-right: 2rem;
 }
 
 .tb-comment_form {
   @extend .tb-comment;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1.5rem auto 2rem;
+  align-self: center;
 }
 
 .tb-comment_form-first {

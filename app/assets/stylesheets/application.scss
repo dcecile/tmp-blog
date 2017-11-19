@@ -13,13 +13,22 @@
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
 
 .tb-application {
-  @extend .rounded;
   font-family: 'Share Tech Mono', monospace;
   max-width: 40rem;
-  margin: 3rem 4rem;
   border: 2px solid $primary;
   padding: $application-padding;
   text-decoration-skip: ink;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@include media-breakpoint-up(sm) {
+  .tb-application {
+    border-radius: $border-radius;
+    margin: 3rem 4rem;
+    min-height: auto;
+  }
 }
 
 .tb-application__header {
@@ -32,10 +41,11 @@
 
 .tb-application__content {
   padding: 0.8rem 1.6rem;
+  margin-bottom: 1rem;
 }
 
 .tb-application__footer {
   border-top: 2px solid $primary;
-  margin: 1rem (-$application-padding) (-$application-padding);
+  margin: auto (-$application-padding) (-$application-padding);
   padding: $application-padding;
 }

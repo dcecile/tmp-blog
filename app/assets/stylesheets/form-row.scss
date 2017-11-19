@@ -9,7 +9,12 @@
 
 .tb-form-row__input-column {
   @extend .col-sm-10;
-  padding-left: 0;
+}
+
+@include media-breakpoint-up(sm) {
+  .tb-form-row__input-column {
+    padding-left: 0;
+  }
 }
 
 .tb-form-row__input-control {
