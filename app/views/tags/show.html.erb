@@ -25,7 +25,11 @@
         "x",
         extra_class: "tb-summary-group__button",
         method: :delete,
-        data: { confirm: "Really, really sure you clicked delete?" }
+        data: {
+          title: "Tag deletion",
+          confirm: "Permanently delete the tag '#{@tag.name}'?",
+          commit: "Delete"
+        }
       )
     %>
   </div>

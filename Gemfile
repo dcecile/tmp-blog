@@ -24,6 +24,8 @@ gem "rack-timeout"
 gem "sass-rails", "~> 5.0"
 # Use Bootstrap 4 for styling
 gem "bootstrap", "~> 4.0.0.beta2.1"
+# Use Bootstrap for modal confirmations
+gem "data-confirm-modal"
 # Use Octicons for icons
 gem "octicons_helper"
 # Use jQuery for scripting

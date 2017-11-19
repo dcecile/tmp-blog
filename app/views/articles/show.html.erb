@@ -51,7 +51,11 @@
         article_path(@article),
         "x",
         method: :delete,
-        data: { confirm: "Really, really sure you clicked delete?" },
+        data: {
+          title: "Article deletion",
+          confirm: "Permanently delete the article '#{@article.title}'?",
+          commit: "Delete"
+        },
         extra_class: "tb-article__button"
       )
     %>
