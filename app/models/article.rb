@@ -33,6 +33,8 @@ class Article < ApplicationRecord
       list
       .split(",")
       .map { |name| Tag.sanitize_name(name) }
+      .reject(&:empty?)
+      .uniq
     self.tags =
       tag_names.map do |tag_name|
         Tag.find_or_create_by(name: tag_name)
