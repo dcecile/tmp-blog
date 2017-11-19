@@ -9,4 +9,11 @@ class Tag < ApplicationRecord
   def self.lexicographical_order
     order(name: :asc)
   end
+
+  def self.sanitize_name(name)
+    name
+      .strip
+      .downcase
+      .gsub(/\s+/, "-")
+  end
 end

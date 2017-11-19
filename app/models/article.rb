@@ -29,7 +29,10 @@ class Article < ApplicationRecord
   end
 
   def tag_list=(list)
-    tag_names = list.split(",").map(&:strip)
+    tag_names =
+      list
+      .split(",")
+      .map { |name| Tag.sanitize_name(name) }
     self.tags =
       tag_names.map do |tag_name|
         Tag.find_or_create_by(name: tag_name)
