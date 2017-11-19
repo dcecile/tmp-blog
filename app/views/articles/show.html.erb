@@ -30,9 +30,10 @@
   <% if @article.tags.any? %>
     <p class="tb-article__tags">
       tags:
-      <% @article.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag) %>
-      <% end %>
+      <%= link_to @article.tags[0].name, tag_path(@article.tags[0])
+      %><% @article.tags.drop(1).each do |tag|
+        %>, <%= link_to tag.name, tag_path(tag)
+      %><% end %>
     </p>
   <% end %>
 
