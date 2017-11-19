@@ -1,8 +1,16 @@
 .tb-empty {
   @extend .card, .text-center;
-  max-width: 26rem;
-  margin: 3rem auto 4rem;
-  border-color: fade_out($primary, 0.2);
+  border: none;
+  max-width: none;
+  margin: 1rem 0 3rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .tb-empty {
+    border: $card-border-width solid fade_out($primary, 0.2);
+    max-width: 26rem;
+    margin: 3rem auto 4rem;
+  }
 }
 
 .tb-empty__image {
@@ -15,6 +23,13 @@
 
 .tb-empty__body {
   @extend .card-body;
+  padding: 0;
+}
+
+@include media-breakpoint-up(sm) {
+  .tb-empty__body {
+    padding: $card-spacer-x;
+  }
 }
 
 .tb-empty__text {
